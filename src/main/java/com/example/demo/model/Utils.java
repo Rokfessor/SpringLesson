@@ -1,14 +1,12 @@
 package com.example.demo.model;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Base64;
 
 public class Utils {
     public static Color[] removeItem(Color[] array, int index) {
@@ -38,8 +36,7 @@ public class Utils {
 
     public static BufferedImage base64ToImage(String base64) throws IOException {
         String base64Str = base64.split(",")[1];
-        BASE64Decoder decoder = new BASE64Decoder();
-        byte[] imageAsBytes = decoder.decodeBuffer(base64Str);
+        byte[] imageAsBytes = Base64.getDecoder().decode(base64Str);
         try (ByteArrayInputStream bis = new ByteArrayInputStream(imageAsBytes)) {
             return ImageIO.read(bis);
         }
@@ -56,8 +53,8 @@ public class Utils {
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
             ImageIO.write(image, "jpeg", bos);
             byte[] imageBytes = bos.toByteArray();
-            BASE64Encoder encoder = new BASE64Encoder();
-            return "data:image/jpeg;base64," + encoder.encode(imageBytes);
+
+            return "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(imageBytes);
         }
     }
 
