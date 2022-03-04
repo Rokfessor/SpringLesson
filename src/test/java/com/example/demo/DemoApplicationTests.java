@@ -1,18 +1,14 @@
 package com.example.demo;
 
-import com.example.demo.model.SeamCarving;
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)

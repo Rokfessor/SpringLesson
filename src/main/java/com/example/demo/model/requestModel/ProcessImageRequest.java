@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.model.requestModel;
 
 public class ProcessImageRequest {
     public String image;

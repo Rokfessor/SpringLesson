@@ -1,4 +1,6 @@
-package com.example.demo.model;
+package com.example.demo.model.imageProcessing;
+
+import com.example.demo.model.utils.Utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

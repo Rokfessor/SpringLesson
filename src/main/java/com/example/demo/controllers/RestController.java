@@ -1,6 +1,11 @@
 package com.example.demo.controllers;
 
-import com.example.demo.model.*;
+import com.example.demo.model.imageProcessing.Monochrome;
+import com.example.demo.model.imageProcessing.SeamCarving;
+import com.example.demo.model.requestModel.EffectType;
+import com.example.demo.model.requestModel.ProcessImageRequest;
+import com.example.demo.model.requestModel.ProcessImageResponse;
+import com.example.demo.model.utils.Utils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +20,7 @@ import java.io.IOException;
 public class RestController {
     @PostMapping("/process_image")
     public ResponseEntity<ProcessImageResponse> processImage(@RequestBody ProcessImageRequest processImageRequest,
-                                                            @RequestParam(name = "effect") EffectType effectType) {
+                                                             @RequestParam(name = "effect") EffectType effectType) {
         ProcessImageResponse response = new ProcessImageResponse();
         try {
             BufferedImage image = Utils.base64ToImage(processImageRequest.image);
